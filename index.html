@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitédex</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="rounds">
+        <div id="biper" class="round">
+          <div id="biper__anime" class="round"></div>
+        </div>
+
+        <div class="indicators">
+          <div id="red" class="round indicator"></div>
+          <div id="orange" class="round indicator"></div>
+          <div id="green" class="round indicator"></div>
+        </div>
+      </div>
+
+      <div class="screen__border">
+        <div class="screen__container">
+          <div class="screen__top">
+            <div class="round top__led"></div>
+            <div class="round top__led"></div>
+          </div>
+
+          <div id="screen">
+            <div id="screen__content"></div>
+          </div>
+
+          <div class="screen__bottom">
+            <div class="big__led__container">
+              <div class="round big__led"></div>
+            </div>
+
+            <div class="speaker__container">
+              <div class="speaker"></div>
+              <div class="speaker"></div>
+              <div class="speaker"></div>
+              <div class="speaker"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pad">
+        <div class="cross">
+          <button id="top" class="control">t</button>
+          <button id="left" class="control">l</button>
+          <div id="center" class="control control__center"></div>
+          <button id="right" class="control">r</button>
+          <button id="bottom" class="control">b</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

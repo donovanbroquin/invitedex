@@ -1,0 +1,281 @@
+@import 'normalize.css';
+@import './style.css';
+
+@font-face {
+  font-family: 'PKMN\ RBYGSC';
+  src: url('./PKMN\ RBYGSC.ttf') format('truetype');
+}
+
+html,
+body {
+  background-color: #e11d48;
+}
+
+#app {
+  max-width: 24rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  margin: auto;
+}
+
+.rounds {
+  display: flex;
+}
+
+.round {
+  border-radius: 100%;
+}
+
+#biper,
+#biper__anime {
+  position: relative;
+  background-color: #38bdf8;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 2rem;
+}
+
+#biper {
+  position: relative;
+  border: 6px white solid;
+  border-color: white;
+  box-shadow: inset 8em 1em #0ea5e9;
+}
+
+#biper:after {
+  content: '';
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: white;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  border-radius: 100%;
+  opacity: 0.8;
+}
+
+#biper__anime {
+  position: absolute;
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.indicators {
+  display: flex;
+  gap: 1rem;
+}
+
+.indicator {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: solid 2px #1e293b;
+}
+
+.indicator:after {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: white;
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  border-radius: 100%;
+  opacity: 0.6;
+}
+
+#red {
+  background-color: #ef4444;
+}
+
+#orange {
+  background-color: #eab308;
+}
+
+#green {
+  background-color: #22c55e;
+}
+
+.screen__border {
+  max-width: 24rem;
+  display: flex;
+  width: 82vw;
+  height: 46vh;
+  background-color: #1e293b;
+  margin: auto;
+  margin-top: 4rem;
+  clip-path: polygon(
+    0 0%,
+    10% 0,
+    100% 0%,
+    100% 10%,
+    100% 90%,
+    100% 100%,
+    10% 100%,
+    0% 87%,
+    0% 10%
+  );
+}
+
+.screen__container {
+  max-width: 23.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 45vh;
+  background-color: #cbd5e1;
+  margin: auto;
+  clip-path: polygon(
+    0 0%,
+    10% 0,
+    100% 0%,
+    100% 10%,
+    100% 90%,
+    100% 100%,
+    10% 100%,
+    0% 87%,
+    0% 10%
+  );
+}
+
+.screen__top {
+  display: flex;
+  gap: 4rem;
+  justify-items: center;
+  place-content: center;
+  padding: 0.7rem;
+}
+
+.top__led {
+  width: 1rem;
+  height: 1rem;
+  background-color: #ef4444;
+  border: solid 2px #1e293b;
+}
+
+#screen {
+  position: relative;
+  display: flex;
+  margin: auto;
+  width: 87%;
+  height: 76%;
+  background-color: #1f293731;
+  border-radius: 2%;
+  flex-grow: 0;
+  font-family: 'PKMN\ RBYGSC';
+}
+
+.screen__bottom {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  flex: 1 1 0%;
+}
+
+.big__led__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.big__led {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #ef4444;
+  border: solid 2px #1e293b;
+}
+
+.speaker__container {
+  width: 5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  justify-items: center;
+  align-items: center;
+  place-content: center;
+}
+
+.speaker {
+  width: 100%;
+  height: 0.2rem;
+  background-color: #1e293b;
+}
+
+.pad {
+  background-color: khaki;
+  display: flex;
+  justify-content: end;
+  margin-top: 4rem;
+}
+
+.cross {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  justify-content: center;
+}
+
+.control {
+  background-color: #1e293b;
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control:not(.control__center) {
+  cursor: pointer;
+  border: none;
+}
+
+#left {
+  grid-column-start: 1;
+  border-radius: 15% 0 0 15%;
+}
+
+#top {
+  grid-column-start: 2;
+  border-radius: 15% 15% 0 0;
+}
+
+#right {
+  grid-column-start: 4;
+  border-radius: 0 15% 15% 0;
+}
+
+#bottom {
+  grid-column-start: 2;
+  border-radius: 0 0 15% 15%;
+}
+
+#screen__content {
+  display: flex;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+#boot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
