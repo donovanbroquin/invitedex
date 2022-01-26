@@ -85,16 +85,20 @@ body {
   opacity: 0.6;
 }
 
-#red {
+.red {
   background-color: #ef4444;
 }
 
-#orange {
+.orange {
   background-color: #eab308;
 }
 
-#green {
+.green {
   background-color: #22c55e;
+}
+
+.blue {
+  background-color: #0ea5e9;
 }
 
 .screen__border {
@@ -173,6 +177,37 @@ body {
   flex: 1 1 0%;
 }
 
+.guests {
+  width: 100%;
+  list-style: none;
+  text-indent: 0;
+  padding: 0;
+}
+
+.guest__item {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.guest__item:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.guest__chevron {
+  width: 2rem;
+  height: 2rem;
+}
+
+.guest__item.current .guest__chevron {
+  display: block;
+}
+
+.guest__item:not(.current) .guest__chevron {
+  visibility: hidden;
+}
+
 .big__led__container {
   width: 100%;
   display: flex;
@@ -205,22 +240,57 @@ body {
 }
 
 .pad {
-  background-color: khaki;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   margin-top: 4rem;
+}
+
+.random__round {
+  background-color: #1e293b;
+  width: 3rem;
+  height: 3rem;
+}
+
+.center__pad {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  flex: 1 1 0%;
+  padding: 0 1rem;
+}
+
+.pills {
+  display: flex;
+  gap: 1rem;
+}
+
+.pad_pill {
+  width: 4rem;
+  height: 0.5rem;
+  border-radius: 0.2rem;
+  flex: 1 1 0%;
+  border: solid 1px #1e293b;
+}
+
+.second__screen {
+  flex: 1 1 0%;
+  margin-bottom: 1rem;
+  background-color: #4d7c0f;
+  border-radius: 0.3rem;
+  border: solid 1px #1e293b;
 }
 
 .cross {
   display: grid;
   grid-template-rows: repeat(3, minmax(0, 1fr));
   justify-content: center;
+  margin-top: 0.7rem;
 }
 
 .control {
   background-color: #1e293b;
-  width: 3rem;
-  height: 3rem;
+  width: 2.2rem;
+  height: 2.2rem;
   color: white;
   display: flex;
   align-items: center;
@@ -256,6 +326,11 @@ body {
   display: flex;
   padding: 0.7rem;
   width: 100%;
+}
+
+.pad__chevron {
+  width: 1rem;
+  height: 1rem;
 }
 
 #boot {
