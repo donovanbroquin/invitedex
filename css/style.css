@@ -420,7 +420,7 @@ body {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
   #app {
     height: 80vh;
-    max-width: 80%;
+    max-width: 90%;
     padding: 3vw 2.5vw;
   }
 
@@ -466,8 +466,8 @@ body {
   }
 
   .screen__container {
-    max-width: 99%;
-    height: 46.4vh;
+    max-width: 98%;
+    height: 46vh;
   }
 
   #screen {
