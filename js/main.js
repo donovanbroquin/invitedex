@@ -11,16 +11,17 @@ const guests = chunk(
 )
 let currentChunkId = 0
 let currentGuestId = 0
+let screen = 'loading'
 
 function backControlMutation() {
   if (currentChunkId > 0 && currentGuestId === 0) {
     currentChunkId--
     currentGuestId = 5
 
-    return showGuests()
+    return guestsScreen()
   } else if (currentGuestId > 0) {
     currentGuestId--
-    return showGuests()
+    return guestsScreen()
   }
 }
 
@@ -30,18 +31,12 @@ function nextControlMutation() {
       currentChunkId++
       currentGuestId = 0
 
-      return showGuests()
+      return guestsScreen()
     } else if (currentGuestId < guests[currentChunkId].length - 1) {
       currentGuestId++
-      return showGuests()
+      return guestsScreen()
     }
   }
-}
-
-function showGuestDetail() {
-  const guest = guests[currentChunkId][currentGuestId]
-
-  console.log(guest)
 }
 
 function handleControls() {
@@ -50,12 +45,15 @@ function handleControls() {
     .getElementById('bottom')
     .addEventListener('click', nextControlMutation)
 
-  document.getElementById('a-button').addEventListener('click', showGuestDetail)
+  document
+    .getElementById('a-button')
+    .addEventListener('click', guestDetailScreen)
 
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowUp') return backControlMutation()
     if (e.key === 'ArrowDown') return nextControlMutation()
-    if (e.key === 'Enter') return showGuestDetail()
+    if (e.key === 'Enter') return guestDetailScreen()
+    if (e.key === 'Escape') return guestsScreen()
   })
 }
 
@@ -94,7 +92,10 @@ function buildItem(guest) {
   return el
 }
 
-function showGuests() {
+function guestsScreen() {
+  screen = 'guests'
+  container.innerHTML = ''
+
   let guestsScreen = document.createElement('ul')
   guestsScreen.classList.add('guests')
 
@@ -111,7 +112,64 @@ function showGuests() {
   container.appendChild(guestsScreen)
 }
 
+function guestDetailScreen() {
+  const guest = guests[currentChunkId][currentGuestId]
+
+  console.log(guest)
+
+  // Create main container
+  const mainContainer = document.createElement('div')
+  mainContainer.classList.add('guest__detail__screen')
+
+  // Create characteristics container and elements
+  const charContainer = document.createElement('div')
+  charContainer.classList.add('guest__detail__char')
+
+  const charLeft = document.createElement('div')
+  charLeft.classList.add('guest__left')
+
+  const sprite = document.createElement('img')
+  sprite.setAttribute('src', '')
+
+  const id = document.createElement('div')
+  id.innerHTML = `<div><span class="id__prefix">No.</span> ${padstart(
+    guest.id,
+    3,
+    0
+  )}</div>`
+
+  charLeft.appendChild(sprite)
+  charLeft.appendChild(id)
+
+  const charRight = document.createElement('div')
+  charRight.classList.add('guest__right')
+
+  const firstName = document.createElement('div')
+  firstName.appendChild(document.createTextNode(guest.name.split(' ')[0]))
+
+  const relation = document.createElement('div')
+  relation.appendChild(document.createTextNode(guest.relation))
+
+  charRight.appendChild(firstName)
+  charRight.appendChild(relation)
+
+  charContainer.appendChild(charLeft)
+  charContainer.appendChild(charRight)
+
+  // Create description
+  const desc = document.createElement('p')
+  desc.classList.add('guest__detail__desc')
+  desc.appendChild(document.createTextNode(guest.description))
+
+  mainContainer.appendChild(charContainer)
+  mainContainer.appendChild(desc)
+
+  container.innerHTML = ''
+  container.appendChild(mainContainer)
+}
+
 function boot() {
+  screen = 'loading'
   container.innerHTML = `<div id="boot">Chargement</div>`
 
   const content = document.querySelector('#boot')
@@ -131,7 +189,7 @@ function cleanLoading(loader, content) {
 
   content.innerHTML = 'Chargement terminé'
 
-  setTimeout(showGuests, 600)
+  setTimeout(guestsScreen, 600)
 
   handleControls(currentGuestId)
 }

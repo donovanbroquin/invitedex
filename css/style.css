@@ -384,6 +384,29 @@ body {
   height: 100%;
 }
 
+.guest__detail__screen {
+  /* display: flex; */
+}
+
+.guest__detail__char {
+  display: flex;
+  margin-bottom: 2vh;
+  gap: 0.7rem;
+}
+
+.id__prefix {
+  font-weight: bolder;
+  font-size: 0.56rem;
+}
+
+.guest__left {
+  flex: 1 1 0%;
+}
+
+.guest__right {
+  flex: 1 1 0%;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0);
