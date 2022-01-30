@@ -1,0 +1,18 @@
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    #app {
+      height: 80vh;
+      max-width: 75vw;
+    }
+  
+    #biper {
+      
+    }
+  
+    .screen__border {
+      height: 38.5vh;
+    }
+  
+    .screen__container {
+      height: 37.8vh;
+    }
+  }
