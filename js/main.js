@@ -1,14 +1,10 @@
-import chunk from 'lodash.chunk'
 import padstart from 'lodash.padstart'
+import api from './api'
+import setSprite from './sprite'
 
 const container = document.querySelector('#screen__content')
-const guests = chunk(
-  JSON.parse(import.meta.env.VITE_GUESTS).map((guest, idx) => ({
-    ...guest,
-    id: idx + 1
-  })),
-  6
-)
+
+let guests = []
 let currentChunkId = 0
 let currentGuestId = 0
 let screen = 'loading'
@@ -48,6 +44,7 @@ function handleControls() {
   document
     .getElementById('a-button')
     .addEventListener('click', guestDetailScreen)
+  document.getElementById('b-button').addEventListener('click', guestsScreen)
 
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowUp') return backControlMutation()
@@ -115,8 +112,6 @@ function guestsScreen() {
 function guestDetailScreen() {
   const guest = guests[currentChunkId][currentGuestId]
 
-  console.log(guest)
-
   // Create main container
   const mainContainer = document.createElement('div')
   mainContainer.classList.add('guest__detail__screen')
@@ -128,8 +123,11 @@ function guestDetailScreen() {
   const charLeft = document.createElement('div')
   charLeft.classList.add('guest__left')
 
-  const sprite = document.createElement('img')
-  sprite.setAttribute('src', '')
+  const sprite = document.createElement('canvas')
+  sprite.setAttribute('width', '56px')
+  sprite.setAttribute('height', '56px')
+
+  setSprite(sprite, guest.sprite[0], guest.sprite[1])
 
   const id = document.createElement('div')
   id.innerHTML = `<div><span class="id__prefix">No.</span> ${padstart(
@@ -168,9 +166,12 @@ function guestDetailScreen() {
   container.appendChild(mainContainer)
 }
 
-function boot() {
+async function boot() {
   screen = 'loading'
   container.innerHTML = `<div id="boot">Chargement</div>`
+
+  guests = (await api()).data
+  console.log(guests)
 
   const content = document.querySelector('#boot')
   const loader = setInterval(() => {
@@ -195,3 +196,44 @@ function cleanLoading(loader, content) {
 }
 
 boot()
+
+// SPRITE
+// const SPRITE_WIDTH = 60
+// const SPRITE_HEIGHT = 60
+// const BORDER_WIDTH = 8
+// const SPACING_WIDTH = 4
+
+// function spritePositionToImagePosition(row, col) {
+//   return {
+//     x: BORDER_WIDTH + col * (SPACING_WIDTH + SPRITE_WIDTH),
+//     y: BORDER_WIDTH + row * (SPACING_WIDTH + SPRITE_HEIGHT)
+//   }
+// }
+
+// var canvas = document.querySelector('canvas')
+// var context = canvas.getContext('2d')
+
+// var spriteSheetURL = '/sprites.png'
+// var image = new Image()
+// image.src = spriteSheetURL
+// image.crossOrigin = true
+
+// var position = spritePositionToImagePosition(0, 1)
+// image.onload = function () {
+//   context.drawImage(
+//     image,
+//     // LOOK!
+//     // we use the position from
+//     // spritePositionToImagePosition
+//     // to start at an offset
+//     // into the spritesheet!
+//     position.x,
+//     position.y,
+//     SPRITE_WIDTH,
+//     SPRITE_HEIGHT,
+//     0,
+//     0,
+//     SPRITE_WIDTH,
+//     SPRITE_HEIGHT
+//   )
+// }

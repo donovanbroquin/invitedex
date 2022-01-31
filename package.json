@@ -10,8 +10,14 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
+    "@notionhq/client": "^0.4.13",
+    "axios": "^0.25.0",
+    "cors": "^2.8.5",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
     "lodash.chunk": "^4.2.0",
     "lodash.padstart": "^4.6.1",
+    "lodash.upperfirst": "^4.3.1",
     "normalize.css": "^8.0.1"
   }
 }
