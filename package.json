@@ -1,23 +1,21 @@
 {
-  "name": "invitedex",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^2.7.2"
-  },
-  "dependencies": {
-    "@notionhq/client": "^0.4.13",
-    "axios": "^0.25.0",
-    "cors": "^2.8.5",
-    "dotenv": "^15.0.0",
-    "express": "^4.17.2",
-    "lodash.chunk": "^4.2.0",
-    "lodash.padstart": "^4.6.1",
-    "lodash.upperfirst": "^4.3.1",
-    "normalize.css": "^8.0.1"
-  }
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "axios": "^0.25",
+        "laravel-mix": "^6.0.6",
+        "lodash.chunk": "^4.2.0",
+        "lodash.padstart": "^4.6.1",
+        "lodash.upperfirst": "^4.3.1",
+        "normalize.css": "^8.0.1",
+        "postcss": "^8.1.14"
+    }
 }
