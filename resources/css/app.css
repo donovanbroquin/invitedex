@@ -1,8 +1,8 @@
 @import 'normalize.css';
 
 @font-face {
-    font-family: 'PKMN\ RBYGSC';
-    src: url('./PKMN\ RBYGSC.ttf') format('truetype');
+    font-family: 'PKMN_RBYGSC';
+    src: url('../fonts/PKMN_RBYGSC.ttf') format('truetype');
 }
 
 html,
@@ -184,7 +184,7 @@ body {
     background-color: #1f293731;
     border-radius: 2%;
     flex-grow: 0;
-    font-family: 'PKMN\ RBYGSC';
+    font-family: 'PKMN_RBYGSC';
 }
 
 .screen__bottom {
@@ -320,7 +320,7 @@ body {
     background-color: #cbd5e1;
     border-radius: 0.3rem;
     border: solid 1px #1e293b;
-    font-family: 'PKMN\ RBYGSC';
+    font-family: 'PKMN_RBYGSC';
 }
 
 .second__screen__content {
@@ -422,6 +422,10 @@ canvas {
     width: 6rem;
     height: 6rem;
     background-size: cover;
+}
+
+#sprites {
+    display: none;
 }
 
 @keyframes pulse {

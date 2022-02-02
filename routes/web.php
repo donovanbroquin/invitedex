@@ -2,7 +2,7 @@
 
 use App\Http\Resources\GuestResource;
 use App\Models\Guest;
-use Illuminate\Support\Facades\{Http, Route};
+use Illuminate\Support\Facades\{Cache, Http, Route};
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\{Http, Route};
 */
 
 Route::get('/', function () {
-    $res = Http::withToken(config('services.notion.token'))
+    $res = Cache::remember('guests', 30, fn () => Http::withToken(config('services.notion.token'))
         ->withHeaders([
             'Notion-Version' => '2021-08-16'
         ])
         ->post('https://api.notion.com/v1/databases/' . config('services.notion.project') . '/query', ['page_size' => 300])
-        ->json();
+        ->json());
 
     $guests = GuestResource::collection(collect($res['results'])
         ->map(fn ($guest, $idx) => new Guest(array_merge($guest, ['id' => $idx + 1]))));

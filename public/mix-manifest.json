@@ -1,5 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/manifest.js": "/js/manifest.js",
     "/css/app.css": "/css/app.css",
-    "/assets/sprites.png": "/assets/sprites.png"
+    "/js/vendor.js": "/js/vendor.js",
+    "/assets/sprites.png": "/assets/sprites.png",
+    "/fonts/PKMN_RBYGSC.ttf": "/fonts/PKMN_RBYGSC.ttf"
 }

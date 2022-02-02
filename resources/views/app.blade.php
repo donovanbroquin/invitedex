@@ -4,9 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
-
     </head>
     <body>
       <div id="app">
@@ -136,6 +135,10 @@
       </div>
 
       <div id="guests" class="hidden">{{ $guests }}</div>
+      <img id="sprites" src="{{ mix('/assets/sprites.png') }}">    
+
+      <script src="{{ mix('/js/manifest.js') }}"></script>
+      <script src="{{ mix('/js/vendor.js') }}"></script>
       <script type="module" src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>
