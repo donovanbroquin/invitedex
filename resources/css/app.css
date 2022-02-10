@@ -470,6 +470,10 @@ canvas {
     margin-right: 1.6vw;
 }
 
+.about__container h1 {
+    text-align: center;
+}
+
 @keyframes pulse {
     0% {
         transform: scale(0);
