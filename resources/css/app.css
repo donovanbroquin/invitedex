@@ -33,7 +33,8 @@ body {
     border-radius: 0.5rem;
     filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
         drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
-    height: 75vh;
+    /* height: 75vh; */
+    height: 55vh;
 }
 
 .rounds {
@@ -288,7 +289,7 @@ body {
     font-size: 0.75rem;
 }
 
-.a-button {
+.a_button {
     margin-left: 50px;
 }
 

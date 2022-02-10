@@ -1,4 +1,11 @@
 const items = ['a_button', 'b_button', 'left', 'top', 'right', 'bottom']
+const keys = [
+    { key: 'ArrowUp', event: 'top' },
+    { key: 'ArrowDown', event: 'bottom' },
+    { key: 'Enter', event: 'a_button' },
+    { key: 'Escape', event: 'b_button' }
+]
+
 let emitter
 let currentScreen
 let oldScreen
@@ -10,6 +17,18 @@ function deleteListeners() {
 
         original.parentElement.replaceChild(clone, original)
     })
+}
+
+function keyboardListener(e) {
+    const foundKey = keys.find(key => key.key === e.key)
+
+    if (!foundKey) return
+
+    emitter.emit(
+        `ON_${foundKey.event
+            .split('_')[0]
+            .toUpperCase()}_${currentScreen.toUpperCase()}`
+    )
 }
 
 function stopEmitter() {
@@ -39,12 +58,16 @@ function updateControls() {
                     )
                 )
         })
+
+    document.addEventListener('keydown', keyboardListener)
 }
 
 export default function (globalEmitter, curr, old) {
     emitter = globalEmitter
     currentScreen = curr
     oldScreen = old
+
+    document.onkeydown = null
 
     deleteListeners()
     stopEmitter()
