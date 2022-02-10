@@ -20,7 +20,7 @@ class GuestResource extends JsonResource
             'name' => Str::title($this->properties['Name']['title'][0]['plain_text']),
             'relation' => Str::ucfirst($this->properties['relation']['rich_text'][0]['plain_text']),
             'sprite' => explode(',', $this->properties['sprite']['rich_text'][0]['plain_text']),
-            'description' => $this->properties['description']['rich_text'][0]['plain_text']
+            'description' => $this->properties['description']['rich_text'][0]['plain_text'],
         ];
     }
 }

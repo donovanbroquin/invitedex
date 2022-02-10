@@ -12,7 +12,7 @@ const mix = require('laravel-mix')
  */
 
 mix.js('resources/js/app.js', 'public/js')
-.extract(['axios', 'lodash.chunk', 'lodash.padstart'])
+    .extract(['axios', 'mitt', 'lodash.chunk', 'lodash.padstart'])
     .postCss('resources/css/app.css', 'public/css')
     .copy('resources/assets', 'public/assets')
     .copyDirectory('resources/fonts', 'public/fonts')

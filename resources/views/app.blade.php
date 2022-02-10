@@ -49,8 +49,8 @@
   
         <div class="pad">
           <div>
-            <button id="a-button" class="round random__round">A</button>
-            <button id="b-button" class="round random__round">B</button>
+            <button id="a_button_loading" class="round random__round a_button">A</button>
+            <button id="b_button_loading" class="round random__round b_button">B</button>
           </div>
   
           <div class="center__pad">
@@ -65,7 +65,7 @@
           </div>
   
           <div class="cross">
-            <button id="top" class="control">
+            <button id="top_loading" class="top control">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="pad__chevron"
@@ -81,7 +81,7 @@
                 />
               </svg>
             </button>
-            <button id="left" class="control">
+            <button id="left_loading" class="left control">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="pad__chevron"
@@ -98,7 +98,7 @@
               </svg>
             </button>
             <div id="center" class="control control__center"></div>
-            <button id="right" class="control">
+            <button id="right_loading" class="right control">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="pad__chevron"
@@ -114,7 +114,7 @@
                 />
               </svg>
             </button>
-            <button id="bottom" class="control">
+            <button id="bottom_loading" class="control bottom">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="pad__chevron"
@@ -134,7 +134,6 @@
         </div>
       </div>
 
-      <div id="guests" class="hidden">{{ $guests }}</div>
       <img id="sprites" src="{{ mix('/assets/sprites.png') }}">    
 
       <script src="{{ mix('/js/manifest.js') }}"></script>

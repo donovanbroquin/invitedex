@@ -12,7 +12,8 @@
     "dependencies": {
         "axios": "^0.25",
         "lodash.chunk": "^4.2.0",
-        "lodash.padstart": "^4.6.1"
+        "lodash.padstart": "^4.6.1",
+        "mitt": "^3.0.0"
     },
     "devDependencies": {
         "laravel-mix": "^6.0.6",
