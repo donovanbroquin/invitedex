@@ -21,8 +21,6 @@ async function boot() {
     const screen = await import(`./screens/${currentScreen}Screen`)
     screenContainer.screen = screen
     screenContainer.screen.default(globalEmitter, parameters)
-
-    console.log('onBoot', currentScreen, oldScreen)
 }
 
 globalEmitter.on('CHANGE_SCREEN', props => {
@@ -32,7 +30,7 @@ globalEmitter.on('CHANGE_SCREEN', props => {
         props.screen === 'guests' ? { ...props.params, guests } : props.params
 
     boot()
-    
+
     controls(globalEmitter, currentScreen, oldScreen)
 })
 

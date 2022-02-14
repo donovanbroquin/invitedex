@@ -2,6 +2,7 @@ import { container } from '../helpers'
 
 const entries = [
     { label: 'Invités', name: 'guests' },
+    { label: 'Save the date', name: 'date' },
     { label: 'A propos', name: 'about' }
 ]
 
@@ -52,7 +53,6 @@ function build() {
 
 function handleControls(emitter) {
     emitter.on('ON_BOTTOM_MENU', () => {
-        console.log('weuvbnweuovbuowebvuowebuovbweovbo')
         if (entries.length - 1 > currentEntry) {
             currentEntry++
         } else {
