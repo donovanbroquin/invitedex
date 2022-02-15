@@ -7,7 +7,7 @@
 
 html,
 body {
-    background-color: #ffe4e6;
+    background-color: #1e293b;
     height: 100%;
     touch-action: manipulation;
 }
@@ -491,6 +491,37 @@ canvas {
   } */
 }
 
+@media only screen and (min-height: 730px) and (max-height: 950px) {
+    #app {
+        height: 70vh;
+    }
+
+    .screen__border {
+        height: 37vh;
+    }
+
+    .screen__container {
+        height: 36vh;
+    }
+
+    .guest__id {
+        font-size: 0.8rem;
+    }
+
+    #screen {
+        font-size: 0.95rem;
+        height: 30vh;
+    }
+
+    .pad {
+        margin-top: 6vh;
+    }
+
+    .speaker__container {
+        width: 5vw;
+    }
+}
+
 /* iPad */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
     #app {
@@ -606,14 +637,18 @@ canvas {
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    #app {
+        height: 73vh;
+    }
+
     .screen__border {
         max-width: 100%;
-        height: 47vh;
+        height: 42vh;
     }
 
     .screen__container {
         max-width: 98%;
-        height: 46vh;
+        height: 41vh;
     }
 
     .guest__id {
@@ -623,31 +658,12 @@ canvas {
     #screen {
         font-size: 0.95rem;
     }
-}
 
-@media only screen and (min-height: 730px) and (max-height: 950px) {
-    #app {
-        height: 70vh;
+    .speaker__container {
+        width: 10vw;
     }
 
-    .screen__border {
-        height: 37vh;
-    }
-
-    .screen__container {
-        height: 36vh;
-    }
-
-    .guest__id {
-        font-size: 0.8rem;
-    }
-
-    #screen {
-        font-size: 0.95rem;
-        height: 30vh;
-    }
-
-    .pad {
-        margin-top: 6vh;
+    .list .container {
+        font-size: 0.9rem;
     }
 }
