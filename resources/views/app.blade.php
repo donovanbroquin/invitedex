@@ -134,7 +134,8 @@
         </div>
       </div>
 
-      <img id="sprites" src="{{ mix('/assets/sprites.png') }}">    
+      <img id="sprites-1g" class="sprites" src="{{ mix('/assets/sprites-1g.png') }}">    
+      <img id="sprites-2g" class="sprites" src="{{ mix('/assets/sprites-2g.png') }}">    
 
       <script src="{{ mix('/js/manifest.js') }}"></script>
       <script src="{{ mix('/js/vendor.js') }}"></script>

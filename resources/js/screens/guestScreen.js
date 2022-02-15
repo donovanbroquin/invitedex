@@ -25,7 +25,7 @@ function createChars() {
     sprite.setAttribute('width', '56px')
     sprite.setAttribute('height', '56px')
 
-    setSprite(sprite, guest.sprite[0], guest.sprite[1])
+    setSprite(sprite, guest.sprite, guest.coordinates[0], guest.coordinates[1])
 
     const id = document.createElement('div')
     id.innerHTML = `<div><span class="id__prefix">No.</span> ${padstart(

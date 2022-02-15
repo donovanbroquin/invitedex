@@ -425,7 +425,7 @@ canvas {
     background-size: cover;
 }
 
-#sprites {
+.sprites {
     display: none;
 }
 
