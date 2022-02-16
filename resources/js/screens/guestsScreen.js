@@ -9,7 +9,7 @@ let currentGuestId = 0
 function backControlMutation() {
     if (currentChunkId > 0 && currentGuestId === 0) {
         currentChunkId--
-        currentGuestId = 5
+        currentGuestId = 3
 
         draw()
     } else if (currentGuestId > 0) {
@@ -20,7 +20,7 @@ function backControlMutation() {
 
 function nextControlMutation() {
     if (guests.length > currentChunkId) {
-        if (currentGuestId === 5) {
+        if (currentGuestId === 3) {
             currentChunkId++
             currentGuestId = 0
 

@@ -42,7 +42,7 @@ function createChars() {
 
     const firstName = document.createElement('div')
     firstName.classList.add('guest__firstname')
-    firstName.appendChild(document.createTextNode(guest.name.split(' ')[0]))
+    firstName.appendChild(document.createTextNode(guest.name))
 
     const relation = document.createElement('div')
     relation.classList.add('guest__relation')
