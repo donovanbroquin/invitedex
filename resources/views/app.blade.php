@@ -20,6 +20,8 @@
             <div class="round indicator green"></div>
           </div>
         </div>
+
+        <div class="separation"></div>
   
         <div class="screen__border">
           <div class="screen__container">

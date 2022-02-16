@@ -116,6 +116,12 @@ body {
     background-color: #0ea5e9;
 }
 
+.separation {
+    background-color: #7f1d1d;
+    height: 2px;
+    margin-top: 20px
+}
+
 .screen__border {
     max-width: 24rem;
     display: flex;
@@ -254,7 +260,7 @@ body {
 }
 
 .speaker__container {
-    width: 10vw;
+    width: 70px;
     padding: 1vh;
     display: flex;
     flex-direction: column;
