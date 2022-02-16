@@ -102,7 +102,7 @@ function handleControls(emitter) {
 }
 
 export default function (globalEmitter, params) {
-    guests = chunk(params.guests, 6)
+    guests = chunk(params.guests, 4)
 
     draw()
     handleControls(globalEmitter)
