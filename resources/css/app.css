@@ -28,12 +28,11 @@ body {
     padding-left: 2rem;
     padding-right: 2rem;
     margin: auto;
-    border: solid #1e293b;
+    /* border: solid #1e293b; */
     background-color: #e11d48;
     border-radius: 0.5rem;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03))
-        drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
-    height: 51vh;
+    filter: drop-shadow(0 25px 25px rgb(225 29 72 / 0.3));
+    height: 58vh;
 }
 
 .rounds {
@@ -120,7 +119,7 @@ body {
 .screen__border {
     max-width: 24rem;
     display: flex;
-    height: 27.7vh;
+    height: 29.7vh;
     background-color: #1e293b;
     margin: auto;
     margin-top: 3vh;
@@ -142,7 +141,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 99vw;
-    height: 27vh;
+    height: 29vh;
     background-color: #cbd5e1;
     margin: auto;
     clip-path: polygon(
@@ -178,7 +177,7 @@ body {
     display: flex;
     margin: auto;
     width: 87%;
-    height: 20vh;
+    height: 21vh;
     background-color: #1f293731;
     border-radius: 2%;
     flex-grow: 0;
@@ -322,11 +321,17 @@ body {
     border-radius: 0.3rem;
     border: solid 1px #1e293b;
     font-family: 'PKMN_RBYGSC';
+    font-size: .8rem;
 }
 
 .second__screen__content {
-    flex: 1 1 0%;
     background-color: #1f293731;
+    padding: 1em
+}
+
+.second__screen__content p {
+    margin: 0;
+    padding: 0;
 }
 
 .cross {

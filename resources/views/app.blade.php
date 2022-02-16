@@ -60,7 +60,11 @@
             </div>
   
             <div class="second__screen">
-              <div class="second__screen__content"></div>
+              <div class="second__screen__content">
+                <p>A: Selectionner</p>
+                <p>B: Retour</p>
+                <p>Fléches: Bouger</p>
+              </div>
             </div>
           </div>
   
