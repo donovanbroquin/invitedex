@@ -1,38 +1,33 @@
-const SPRITE_WIDTH = 60
-const SPRITE_HEIGHT = 60
-const BORDER_WIDTH = 8
-const SPACING_WIDTH = 4
-
 const sprites = {
     '1g': {
         width: 60,
         height: 60,
-        borderV: 8,
-        borderH: 8,
-        spacingV: 4,
-        spacingH: 4
+        border: 8,
+        spacing: 4
     },
     '2g': {
         width: 56,
         height: 56,
-        borderV: 19,
-        borderH: 16,
-        spacingV: 4,
-        spacingH: 14
+        border: 8,
+        spacing: 14
     }
 }
 
-function spritePositionToImagePosition(sprite, row, col) {
+function spritePositionToImagePosition(gen, sprite, row, col) {
     return {
-        x: sprite.borderV + col * (sprite.spacingV + sprite.width),
-        y: sprite.borderH + row * (sprite.spacingH + sprite.height)
+        x:
+            sprite.border +
+            col * (sprite[gen === '1g' ? 'spacing' : 'border'] + sprite.width),
+        y:
+            sprite[gen === '1g' ? 'border' : 'spacing'] +
+            row * (sprite.spacing + sprite.height)
     }
 }
 
 export default function setSprite(canvas, gen, row, col) {
     const sprite = sprites[gen]
     const context = canvas.getContext('2d')
-    const position = spritePositionToImagePosition(sprite, row, col)
+    const position = spritePositionToImagePosition(gen, sprite, row, col)
 
     context.drawImage(
         document.getElementById(`sprites-${gen}`),
