@@ -16,7 +16,8 @@ To use this project, make sure you are using the following:
 - Copy `.env.example` to `.env`
 - Launch `composer install`
 - Launch `php artisan key:generate`
-- Launch `npm run dev`
+- Fill empty fields in `.env`
+- Launch `npm i && npm run dev`
 - Launch `php artisan serve`
 - Access app using  `http://127.0.0.1:8000`
 
