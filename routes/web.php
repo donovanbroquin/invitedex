@@ -19,6 +19,6 @@ Route::get('guests', function () {
     return GuestResource::collection(
         collect($res['results'])
             ->sortBy('properties.order.number')
-            ->map(fn ($guest, $idx) => new Guest(array_merge($guest, ['id' => data_get($guest, 'properties.order.number')])))
+            ->map(fn ($guest) => new Guest(array_merge($guest, ['id' => data_get($guest, 'properties.order.number')])))
     );
 });
