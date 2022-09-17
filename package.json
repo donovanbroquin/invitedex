@@ -1,23 +1,28 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "dependencies": {
-        "axios": "^0.25",
-        "lodash.chunk": "^4.2.0",
-        "lodash.padstart": "^4.6.1",
-        "mitt": "^3.0.0"
-    },
-    "devDependencies": {
-        "laravel-mix": "^6.0.6",
-        "normalize.css": "^8.0.1",
-        "postcss": "^8.1.14"
-    }
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^5.3.3",
+    "nuxt": "3.0.0-rc.9"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.0",
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
+    "@fortawesome/vue-fontawesome": "^3.0.1",
+    "@pinia/nuxt": "^0.4.2",
+    "axios": "^0.27.2",
+    "crypto": "^1.0.1",
+    "dexie": "^3.2.2",
+    "lodash.chunk": "^4.2.0",
+    "lodash.padstart": "^4.6.1",
+    "lodash.sortby": "^4.7.0",
+    "mitt": "^3.0.0",
+    "normalize.css": "^8.0.1",
+    "pinia": "^2.0.22"
+  }
 }

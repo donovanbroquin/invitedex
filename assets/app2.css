@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "PKMN_RBYGSC";
+    src: url("./PKMN_RBYGSC.ttf") format("truetype");
+}
+
+body {
+    touch-action: manipulation;
+}
