@@ -34,7 +34,7 @@ useResetMitt()
 const items = [
   {name: 'Invités', icon: 'users'},
   {name: 'Être enregistré(e)', icon: 'qrcode'},
-  {name: 'Enregistrer un invité', icon: 'users'},
+  {name: 'Enregistrer un invité', icon: 'plus-circle'},
   {name: 'Réinitialiser', icon: 'gear'},
   {name: 'À propos', icon: 'question-circle'},
 ]
