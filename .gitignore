@@ -7,6 +7,5 @@ node_modules
 .output
 .env
 dist
-.DS_Stores
 .DS_Store
-.env
+certs

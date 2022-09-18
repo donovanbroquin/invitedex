@@ -1,28 +1,40 @@
 <template>
-  <ul class="flex flex-col justify-between h-full py-8">
-    <li v-for="(item, idx) in items" :key="item" class="flex space-x-4 items-center">
+  <ul class="flex flex-col justify-between h-full space-y-3">
+    <li v-for="(item, idx) in items" :key="item" :class="{'outline-4 outline-double rounded outline-borders outline-offset-4': currentItem === idx}" class="flex space-x-4 items-center w-full">
       <div class="flex justify-center items-center">
         <div :class="{'invisible': currentItem !== idx}" class="w-3">
           <FontAwesomeIcon icon="caret-right"/>
         </div>
       </div>
-      <p :class="{'font-bold': currentItem === idx}">{{ item }}</p>
+      <div class="flex justify-between items-center w-full">
+
+      <p :class="{'font-bold': currentItem === idx}" class="w-full">{{ item.name }}</p>
+        <div class="w-5">
+          <FontAwesomeIcon :icon="item.icon"/>
+        </div>
+      </div>
     </li>
   </ul>
 </template>
 
 <script setup>
-import {useStore} from "../../stores";
 import GuestsScreen from "./GuestsScreen";
 import ResetScreen from "./ResetScreen";
+import ShareCodeScreen from "./ShareCodeScreen";
+import ScanGuestScreen from "./ScanGuestScreen";
 import useResetMitt from "../../composables/useResetMitt";
 
-const store = useStore()
 const {$mitt} = useNuxtApp()
 
 useResetMitt()
 
-const items = ['Invités', 'Programme', 'Réinitialiser', 'A propos']
+const items = [
+  {name: 'Invités', icon: 'users'},
+  {name: 'Etre enregistré(e)', icon: 'qrcode'},
+  {name: 'Enregistrer un invité', icon: 'users'},
+  {name: 'Réinitialiser', icon: 'gear'},
+  {name: 'A propos', icon: 'question-circle'},
+]
 const currentItem = ref(0)
 const emit = defineEmits(['next'])
 
@@ -35,12 +47,15 @@ $mitt.on('A_PRESS', () => {
       nextScreen = GuestsScreen
       break
     case 1:
-      nextScreen = 'PlanningScreen'
+      nextScreen = ShareCodeScreen
       break
     case 2:
-      nextScreen = ResetScreen
+      nextScreen = ScanGuestScreen
       break
     case 3:
+      nextScreen = ResetScreen
+      break
+    case 4:
       nextScreen = 'AboutScreen'
       break
   }

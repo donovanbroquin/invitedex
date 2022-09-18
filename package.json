@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --https --ssl-key certs/server.key --ssl-cert certs/server.crt --port 3000",
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
@@ -23,6 +23,8 @@
     "lodash.sortby": "^4.7.0",
     "mitt": "^3.0.0",
     "normalize.css": "^8.0.1",
-    "pinia": "^2.0.22"
+    "pinia": "^2.0.22",
+    "qr-scanner": "^1.4.1",
+    "qrcode": "^1.5.1"
   }
 }

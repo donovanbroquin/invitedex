@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 import Dexie from "dexie";
 import axios from "axios";
+import {useChunkedGuests} from "~/composables/useGuestList";
 
 export const useStore = defineStore('invitedex', {
     state: () => ({
@@ -20,7 +21,7 @@ export const useStore = defineStore('invitedex', {
         },
 
         // Guests ids only
-        catched: [],
+        catches: [],
 
         // Does Invitédex initialised
         isInitialized: false,
@@ -41,9 +42,13 @@ export const useStore = defineStore('invitedex', {
             this.db.version(1).stores({
                 guests: 'id, name, relation, sprite, coordinates, description, hash',
             });
+            this.db.version(1).stores({
+                catches: 'hash, date',
+            });
 
             // Use stored guests if present only of wedding day
             this.guests = await this.db.guests.toArray()
+            this.catches = await this.db.catches.toArray()
             if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
 
             // Else, fetch and store guests
@@ -102,6 +107,24 @@ export const useStore = defineStore('invitedex', {
         },
         onUpdatePosition(position) {
             this.position = position
+        },
+        onCatchGuest(hash) {
+            if (!this.catches.map(catched => catched.hash).includes(hash)) {
+                const item = {hash, date: new Date}
+
+                this.catches.push(item)
+                this.db.catches.add(item)
+            }
+
+            // Set currentGuest to hash owner
+            useChunkedGuests().forEach((page, pageIdx) => {
+                page.forEach((guest, guestIdx) => {
+                    if (guest.hash === hash) {
+                        this.onUpdatePosition({page: pageIdx, guest: guestIdx})
+                        this.onSetCurrentGuest(guest)
+                    }
+                })
+            })
         }
     },
 })

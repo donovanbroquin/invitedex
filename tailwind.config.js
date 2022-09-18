@@ -28,7 +28,7 @@ module.exports = {
             },
             height: {
                 'sprite': '56px'
-            }
+            },
         },
     },
     plugins: [],

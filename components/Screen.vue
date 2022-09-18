@@ -4,7 +4,7 @@
       <Biper v-for="idx in 2" color="bg-red" reflectless/>
     </div>
 
-    <div class="bg-screen h-60 w-full rounded font-pkmn text-xs p-4">
+    <div class="bg-screen h-60 w-full rounded font-pkmn text-xs p-4 relative">
       <Component :is="currentScreen" @next="onChangeScreen" @back="onChangeScreen(true)"/>
     </div>
 
@@ -28,7 +28,6 @@ import LoadingScreen from "./screens/LoadingScreen";
 const currentScreen = shallowRef(LoadingScreen)
 
 function onChangeScreen(screen) {
-  console.log('screen', screen)
   currentScreen.value = screen
 }
 </script>

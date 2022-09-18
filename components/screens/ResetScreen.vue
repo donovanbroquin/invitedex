@@ -7,30 +7,35 @@
       <p>Cette action est irreversible.</p>
     </div>
 
-    <p class="mt-4 text-center font-bold">Continuer ?</p>
+    <Interaction>
+      <template #button>A</template>
+      Continuer ?
+    </Interaction>
   </div>
 </template>
 
 <script setup>
 import {useStore} from "../../stores";
 import useResetMitt from "../../composables/useResetMitt";
+import LoadingScreen from './LoadingScreen'
+import MenuScreen from './MenuScreen'
+import Interaction from "../Interaction";
 
 const store = useStore()
 const emit = defineEmits(['next'])
 
 useResetMitt()
 
-
 store.$subscribe(async (mutation, state) => {
   // Handle A button to trigger data reset and go back to loading screen
   if (state.input === 'A') {
     await store.onReset()
-    emit('next', 'LoadingScreen')
+    emit('next', LoadingScreen)
   }
 
   // Handle B button to go back to menu screen
   if (state.input === 'B') {
-    emit('next', 'LoadingScreen')
+    emit('next', MenuScreen)
   }
 })
 </script>

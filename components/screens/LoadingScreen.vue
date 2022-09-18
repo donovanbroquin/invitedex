@@ -28,7 +28,6 @@ setTimeout(() => canEmitNext.value = true, 3200)
 
 onMounted(async () => {
   try {
-    console.log('herrrrrr', store.isInitialized)
     await store.init()
 
     // Stop interval (avoid memory leak)

@@ -4,14 +4,14 @@ import {useStore} from "~/stores";
 export function useChunkedGuests() {
     const store = useStore()
 
-    return chunk(store.guests, 6)
+    return chunk(store.guests, 5)
 }
 
 export function useOnListDown() {
     const store = useStore()
     const guests = useChunkedGuests()
 
-    if (store.position.page !== guests.length - 1 && store.position.guest === 5) {
+    if (store.position.page !== guests.length - 1 && store.position.guest === 4) {
         store.position.page++
         store.position.guest = 0
     } else if (store.position.guest < guests[store.position.page].length - 1) {
@@ -30,7 +30,7 @@ export function useOnListUp() {
 
     if (store.position.page > 0 && store.position.guest === 0) {
         store.position.page--
-        store.position.guest = 5
+        store.position.guest = 4
     } else if (store.position.guest > 0) {
         store.position.guest--
     } else if (store.position.page === 0 && store.position.guest === 0) {
