@@ -39,17 +39,26 @@ export const useStore = defineStore('invitedex', {
             // Init database
             this.db = new Dexie('invitedex');
 
-            this.db.version(1).stores({
-                guests: 'id, name, relation, sprite, coordinates, description, hash',
-            });
-            this.db.version(1).stores({
-                catches: 'hash, date',
-            });
+            try {
+                this.db.version(1).stores({
+                    guests: 'id, name, relation, sprite, coordinates, description, hash',
+                });
+                this.db.version(1).stores({
+                    catches: 'hash, date',
+                });
+            } catch (e) {
+                console.log('first', e)
+            }
 
             // Use stored guests if present only of wedding day
-            this.guests = await this.db.guests.toArray()
-            this.catches = await this.db.catches.toArray()
-            if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
+            try {
+
+                this.guests = await this.db.guests.toArray()
+                this.catches = await this.db.catches.toArray()
+                if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
+            } catch (e) {
+                console.log('second',)
+            }
 
             // Else, fetch and store guests
             await this.db.guests.clear()
