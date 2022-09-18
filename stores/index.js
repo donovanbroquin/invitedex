@@ -53,8 +53,8 @@ export const useStore = defineStore('invitedex', {
             // Use stored guests if present only of wedding day
             try {
 
-                this.guests = await this.db.guests.toArray()
-                this.catches = await this.db.catches.toArray()
+                this.guests = await this.db?.guests?.toArray()
+                this.catches = await this.db?.catches?.toArray()
                 if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
             } catch (e) {
                 console.log('second',)
