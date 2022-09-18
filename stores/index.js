@@ -55,10 +55,14 @@ export const useStore = defineStore('invitedex', {
 
                 this.guests = await this.db?.guests?.toArray()
                 this.catches = await this.db?.catches?.toArray()
-                if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
+
+                if (!this.guests) this.guests = []
+                if (!this.catches) this.catches = []
             } catch (e) {
-                console.log('second',)
+                console.log('second', e)
             }
+
+            if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
 
             // Else, fetch and store guests
             await this.db.guests.clear()
