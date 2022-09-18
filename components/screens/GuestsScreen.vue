@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex flex-col space-y-3 h-full">
+  <ul class="flex flex-col space-y-4 h-full">
     <GuestLine
         v-for="guest in guests[currentPage]"
         :key="guest.id"

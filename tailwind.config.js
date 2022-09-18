@@ -18,10 +18,12 @@ module.exports = {
                 'screen': '#1f293731'
             },
             fontFamily: {
-                pkmn: ['PKMN_RBYGSC']
+                pkmn: ['PKMN_RBYGSC'],
+                press: ['PressStart2P_Regular']
             },
             fontSize: {
-                xss: '.575rem'
+                xsss: '.575rem',
+                xss: '.675rem'
             },
             width: {
                 'sprite': '56px'

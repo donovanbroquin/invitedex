@@ -1,7 +1,7 @@
 <template>
   <div class="h-full flex flex-col justify-between">
-    <h1 class="text-lg text-center">Code a partager</h1>
-    <p>Pour apparaitre dans leur Invitédex comme enregistré(e)</p>
+    <h1 class="text-lg text-center">Code à partager</h1>
+    <p class="text-xsss">Pour apparaitre dans leur Invitédex comme enregistré(e)</p>
 
     <div class="flex flex-col items-center justify-center">
       <canvas ref="qrcode"/>
@@ -24,9 +24,9 @@ const qrcode = ref()
 
 onMounted(() => {
   QRCode.toCanvas(qrcode.value, store.whoiam, {
-    color: {
-      light: '#0000'
-    }
+    // color: {
+    //   light: '#000000ff'
+    // }
   }, function (error) {
     if (error) console.error('here', error)
   })

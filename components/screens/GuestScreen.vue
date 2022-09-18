@@ -1,24 +1,25 @@
 <template>
-  <div class="flex flex-col h-full">
-    <div class="flex space-x-4">
+  <div class="flex flex-col h-full text-lg tracking-wide">
+    <div class="flex">
       <canvas ref="sprite" class="h-24 w-24"/>
-      <div class="space-y-4">
-        <h1 class="font-black">{{ store.currentGuest.name }}</h1>
-        <p>{{ store.currentGuest.relation }}</p>
+      <div class="h-full flex flex-col justify-between">
+        <h1 class="font-black text-xs">{{ store.currentGuest.name }}</h1>
+        <p class="text-xsss tracking-tighter mb-4">{{ store.currentGuest.relation }}</p>
       </div>
     </div>
 
     <div class="flex items-center justify-between mt-2 mb-4">
-      <p>No. {{ no }}</p>
+      <p class="text-xsss">No.{{ no }}</p>
       <div v-if="catched" class="flex space-x-2 items-center">
         <div :class="{'invisible': currentGuest !== idx}" class="w-5">
           <FontAwesomeIcon icon="handshake"/>
         </div>
-        <span>{{ catched.date }}</span>
+        <span class="text-xsss">{{ catched.date }}</span>
       </div>
     </div>
 
-    <p class="outline-4 outline-double rounded outline-borders outline-offset-4 h-full">{{ store.currentGuest.description }}</p>
+    <p class="outline-4 outline-double rounded outline-borders outline-offset-4 h-full text-xss">
+      {{ store.currentGuest.description }}</p>
   </div>
 </template>
 

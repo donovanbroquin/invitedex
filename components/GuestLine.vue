@@ -1,6 +1,6 @@
 <template>
   <li :class="{'outline-4 outline-double rounded outline-borders outline-offset-4': isCurrent}"
-      class="flex space-x-4 items-center">
+      class="flex space-x-4 items-center text-lg tracking-wide leading-3">
     <div class="flex justify-center items-center">
       <div :class="{'invisible': currentGuest.id !== guest.id}" class="w-3">
         <FontAwesomeIcon icon="caret-right"/>
@@ -9,7 +9,7 @@
 
     <div class="w-full">
       <div class="flex space-x-4 justify-between">
-        <p class="text-xss">No. {{ no }}</p>
+        <p class="text-xsss">No. {{ no }}</p>
 
         <div :class="{'invisible': (catched?.hash !== guest.hash)}"
              class="flex justify-center items-center">
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <p :class="{'font-bold': isCurrent}">{{ guest.name }}</p>
+      <p :class="{'font-bold': isCurrent}" class="tracking-wider text-xss">{{ guest.name }}</p>
     </div>
   </li>
 </template>

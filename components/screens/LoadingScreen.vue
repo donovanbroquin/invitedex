@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col items-center justify-center h-full">
-    <h1 class="text-xl font-bold">Invitédex</h1>
-    <h4 class="text-xs">Région Avallon</h4>
-    <p class="mt-12">{{ text }}</p>
+    <h1 class="font-pkmn text-3xl font-black tracking-widest">Invitédex</h1>
+    <h4 class="mt-3 text-xss">Région Avallon</h4>
+    <p class="mt-12 text-xss">{{ text }}</p>
   </div>
 </template>
 
@@ -30,11 +30,14 @@ onMounted(async () => {
   try {
     await store.init()
 
-    // Stop interval (avoid memory leak)
-    clearInterval(interval)
 
     // Change screen
-    if (canEmitNext) emit('next', store.isInitialized ? MenuScreen : WelcomeScreen)
+    setTimeout(() => {
+      // Stop interval (avoid memory leak)
+      clearInterval(interval)
+
+      if (canEmitNext) emit('next', store.isInitialized ? MenuScreen : WelcomeScreen)
+    }, 5000)
   } catch (e) {
     console.log(e)
   }

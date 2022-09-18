@@ -3,6 +3,11 @@
     src: url("./PKMN_RBYGSC.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "PressStart2P_Regular";
+    src: url("./PressStart2P_Regular.ttf") format("truetype");
+}
+
 body {
     touch-action: manipulation;
 }

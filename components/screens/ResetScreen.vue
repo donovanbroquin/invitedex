@@ -1,13 +1,13 @@
 <template>
   <div class="h-full flex flex-col justify-between">
-    <h1 class="text-lg text-center">Réinitialisation de l'Invitédex</h1>
-    <div>
+    <h1 class="text-center">Réinitialisation de l'Invitédex</h1>
 
-      <p class="mt-4">Cette action va supprimer toutes les données de l'application.</p>
-      <p>Cette action est irreversible.</p>
+    <div class="tracking-tight">
+      <p class="mt-4 text-xsss">Cette action va supprimer toutes les données de l'application.</p>
+      <p class="text-xsss">Cette action est irreversible.</p>
     </div>
 
-    <Interaction>
+    <Interaction class="mt-5">
       <template #button>A</template>
       Continuer ?
     </Interaction>

@@ -1,6 +1,8 @@
 <template>
   <ul class="flex flex-col justify-between h-full space-y-3">
-    <li v-for="(item, idx) in items" :key="item" :class="{'outline-4 outline-double rounded outline-borders outline-offset-4': currentItem === idx}" class="flex space-x-4 items-center w-full">
+    <li v-for="(item, idx) in items" :key="item"
+        :class="{'outline-4 outline-double rounded outline-borders outline-offset-4': currentItem === idx}"
+        class="flex space-x-4 items-center w-full">
       <div class="flex justify-center items-center">
         <div :class="{'invisible': currentItem !== idx}" class="w-3">
           <FontAwesomeIcon icon="caret-right"/>
@@ -8,7 +10,7 @@
       </div>
       <div class="flex justify-between items-center w-full">
 
-      <p :class="{'font-bold': currentItem === idx}" class="w-full">{{ item.name }}</p>
+        <p :class="{'font-bold': currentItem === idx}" class="w-full text-xss tracking-wide">{{ item.name }}</p>
         <div class="w-5">
           <FontAwesomeIcon :icon="item.icon"/>
         </div>
@@ -22,6 +24,7 @@ import GuestsScreen from "./GuestsScreen";
 import ResetScreen from "./ResetScreen";
 import ShareCodeScreen from "./ShareCodeScreen";
 import ScanGuestScreen from "./ScanGuestScreen";
+import AboutScreen from "./AboutScreen";
 import useResetMitt from "../../composables/useResetMitt";
 
 const {$mitt} = useNuxtApp()
@@ -30,10 +33,10 @@ useResetMitt()
 
 const items = [
   {name: 'Invités', icon: 'users'},
-  {name: 'Etre enregistré(e)', icon: 'qrcode'},
+  {name: 'Être enregistré(e)', icon: 'qrcode'},
   {name: 'Enregistrer un invité', icon: 'users'},
   {name: 'Réinitialiser', icon: 'gear'},
-  {name: 'A propos', icon: 'question-circle'},
+  {name: 'À propos', icon: 'question-circle'},
 ]
 const currentItem = ref(0)
 const emit = defineEmits(['next'])
@@ -56,7 +59,7 @@ $mitt.on('A_PRESS', () => {
       nextScreen = ResetScreen
       break
     case 4:
-      nextScreen = 'AboutScreen'
+      nextScreen = AboutScreen
       break
   }
 
