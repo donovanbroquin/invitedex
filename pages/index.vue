@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen w-screen bg-global overflow-hidden flex justify-center lg:items-center">
+  <div class="h-screen w-screen pattern overflow-hidden flex justify-center lg:items-center">
     <div class="rounded-lg border-borders bg-invitedex w-11/12 sm:w-1/2 md:w-1/3 lg:w-1/4 h-max mt-2">
 
       <div class="flex px-4 pt-6 space-x-8">
