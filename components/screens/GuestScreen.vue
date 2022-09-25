@@ -5,21 +5,26 @@
 
       <div class="h-full flex flex-col justify-between">
         <h1 class="font-black text-xs">{{ store.currentGuest?.name }}</h1>
-        <p class="text-xsss tracking-tighter mb-4">{{ store.currentGuest?.relation }}</p>
+        <div class="pb-3">
+          <p class="text-xsss tracking-tighter">{{ store.currentGuest?.relation }}</p>
+          <p v-show="store.currentGuest?.table" class="text-xsss tracking-tighter leading-3">Table
+            {{ store.currentGuest?.table }}</p>
+        </div>
       </div>
     </div>
 
-    <div class="flex items-center justify-between mt-2 mb-4">
+    <div class="flex items-center justify-between mt-2 mb-5">
       <p class="text-xsss">No.{{ no }}</p>
+
       <div v-if="catched" class="flex space-x-2 items-center">
-        <div :class="{'invisible': currentGuest !== idx}" class="w-5">
+        <div :class="{'invisible': currentGuest !== idx}" class="w-3">
           <FontAwesomeIcon icon="handshake"/>
         </div>
         <span class="text-xsss">{{ catched.date }}</span>
       </div>
     </div>
 
-    <p class="outline-4 outline-double rounded outline-borders outline-offset-4 h-full text-xss">
+    <p class="outline-4 outline-double rounded outline-borders outline-offset-4 h-full text-xss leading-4 py-1 px-2">
       {{ store.currentGuest?.description }}</p>
   </div>
 </template>

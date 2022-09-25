@@ -4,14 +4,14 @@
   }" class="h-full">
     <p v-show="loading">{{ loadingText }}</p>
 
-    <div v-show="!hasError && winner" class="flex flex-col justify-center items-center">
+    <div v-show="!hasError && winner" class="h-full">
 
-      <h1>Qui est en tête ?</h1>
-      <canvas ref="sprite" class="h-24 w-24"/>
+      <h1 class="border-b-4 border-double border-borders pb-2 mb-3 text-center">Qui est en tête ?</h1>
+      <canvas ref="sprite" class="h-24 w-24 mx-auto"/>
 
       <h2 class="mt-3">{{ winner?.name }}</h2>
 
-      <div class="self-left mt-2 text-xsss">
+      <div class="self-left mt-2 text-xsss h-full">
         <div>
           <span>Enregistrés: </span> {{ winner?.catchesCount }}
         </div>

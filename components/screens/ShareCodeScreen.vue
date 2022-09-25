@@ -1,7 +1,7 @@
 <template>
   <div class="h-full flex flex-col justify-between">
-    <h1 class="text-lg text-center">Code à partager</h1>
-    <p class="text-xsss">Pour apparaitre dans leur Invitédex comme enregistré(e)</p>
+    <h1 class="text-center border-b-4 border-double border-borders pb-2">Code à partager</h1>
+    <p class="text-xsss">Pour apparaitre dans l'Invitédex des autres invités comme enregistré(e)</p>
 
     <div class="flex flex-col items-center justify-center">
       <canvas ref="qrcode"/>

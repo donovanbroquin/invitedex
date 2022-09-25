@@ -24,7 +24,7 @@
 
       <div class="text-xss flex flex-col space-y-6">
         <p>Ravi de te voir avec nous ce soir.</p>
-        <p>Ton aventure commence maintenant, passe une bonne soirée ;)</p>
+        <p>Ton aventure commence maintenant, passe une bonne soirée 😉</p>
       </div>
 
       <Interaction>

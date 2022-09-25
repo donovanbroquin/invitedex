@@ -1,6 +1,6 @@
 <template>
   <div>
-    <video ref="reader" class="absolute top-0 left-0 right-0 h-60 w-full object-fill rounded"/>
+    <video ref="reader" class="absolute top-0 left-0 right-0 h-60 w-full object-fill rounded grayscale"/>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import QrScanner from 'qr-scanner'
 import MenuScreen from "./MenuScreen";
 import GuestScreen from "./GuestScreen";
-import {useStore} from "../../stores";
+import {useStore} from "~/stores";
 
 const {$mitt} = useNuxtApp()
 const store = useStore()

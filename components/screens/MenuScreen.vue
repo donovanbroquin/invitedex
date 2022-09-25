@@ -11,7 +11,7 @@
       <div class="flex justify-between items-center w-full">
 
         <p :class="{'font-bold': currentItem === idx}" class="w-full text-xss tracking-wide">{{ item.name }}</p>
-        <div class="w-5">
+        <div :class="{'text-black': currentItem === idx, 'text-gray-500': currentItem !== idx}" class="w-5">
           <FontAwesomeIcon :icon="item.icon"/>
         </div>
       </div>
