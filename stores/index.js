@@ -66,15 +66,20 @@ export const useStore = defineStore('invitedex', {
 
             // Else, fetch and store guests
             await this.db.guests.clear()
-            const guests = await axios.get('/api/guests')
+            try {
 
-            if (guests.data) {
-                try {
-                    await this.db.guests.bulkAdd(guests.data)
-                    this.guests = guests.data
-                } catch (e) {
-                    console.log(e)
+                const guests = await axios.get('/api/guests')
+                console.log(guests)
+                if (guests.data) {
+                    try {
+                        await this.db.guests.bulkAdd(guests.data)
+                        this.guests = guests.data
+                    } catch (e) {
+                        console.log(e)
+                    }
                 }
+            } catch (e) {
+                throw new Error(e)
             }
 
             // Re-init user if guest hash stored
