@@ -46,20 +46,6 @@ $mitt.on('A_PRESS', () => {
 })
 
 onMounted(async () => {
-  // try {
-  //   await store.init()
-  //
-  //   // Change screen
-  //   setTimeout(() => {
-  //     // Stop interval (avoid memory leak)
-  //     clearInterval(interval)
-  //
-  //     if (canEmitNext) emit('next', store.isInitialized ? MenuScreen : WelcomeScreen)
-  //   }, 3000)
-  // } catch (e) {
-  //   console.log(e)
-  //   canLoad.value = true
-  // }
   await load()
 })
 
