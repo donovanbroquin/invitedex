@@ -1,7 +1,8 @@
 <template>
   <ul class="flex flex-col justify-between h-full space-y-3">
     <li v-for="(item, idx) in items" :key="item"
-        :class="{'outline-4 outline-double rounded outline-borders outline-offset-4': currentItem === idx}"
+        :class="{'outline-4 outline-double rounded outline-borders outline-offset-4': currentItem === idx,
+        'text-gray-500 outline-gray-500': item.disabled}"
         class="flex space-x-4 items-center w-full">
       <div class="flex justify-center items-center">
         <div :class="{'invisible': currentItem !== idx}" class="w-3">
@@ -9,9 +10,9 @@
         </div>
       </div>
       <div class="flex justify-between items-center w-full">
-
         <p :class="{'font-bold': currentItem === idx}" class="w-full text-xss tracking-wide">{{ item.name }}</p>
-        <div :class="{'text-black': currentItem === idx, 'text-gray-500': currentItem !== idx}" class="w-5">
+        <div :class="{'text-black': currentItem === idx, 'text-gray-500': currentItem !== idx || item.disabled}"
+             class="w-5">
           <FontAwesomeIcon :icon="item.icon"/>
         </div>
       </div>
@@ -30,13 +31,14 @@ import useResetMitt from "../../composables/useResetMitt";
 import {useStore} from "~/stores";
 
 const {$mitt} = useNuxtApp()
+const config = useRuntimeConfig()
 
 useResetMitt()
 
 const items = [
   {name: 'Invités', icon: 'users'},
   {name: 'Être enregistré(e)', icon: 'qrcode'},
-  {name: 'Enregistrer un invité', icon: 'plus-circle'},
+  {name: 'Enregistrer un invité', icon: 'plus-circle', disabled: new Date >= new Date(config.eventEndAt)},
   {name: 'Concours', icon: 'trophy'},
   {name: 'Réinitialiser', icon: 'gear'},
   {name: 'À propos', icon: 'question-circle'},
@@ -48,6 +50,8 @@ useStore().contest()
 
 // Handle A button to select and trigger screen change
 $mitt.on('A_PRESS', () => {
+  if (items[currentItem.value].disabled) return
+
   let nextScreen = ''
 
   switch (currentItem.value) {

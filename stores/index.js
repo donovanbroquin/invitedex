@@ -36,6 +36,8 @@ export const useStore = defineStore('invitedex', {
         inputs: []
     }), actions: {
         async init() {
+            const config = useRuntimeConfig()
+
             // Init database
             this.db = new Dexie('invitedex');
 
@@ -62,9 +64,17 @@ export const useStore = defineStore('invitedex', {
                 console.log(e)
             }
 
-            if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
+            // Re-init user if guest hash stored
+            const hash = localStorage.getItem('whoiam')
 
-            // Else, fetch and store guests
+            if (hash && hash !== '') {
+                this.isInitialized = true
+                this.whoiam = hash
+            }
+
+            if (this.guests.length > 0 && new Date >= new Date(config.eventStartAt)) return
+
+            // If not in event OR no guests stored, fetch and store guests
             await this.db.guests.clear()
             try {
 
@@ -80,14 +90,6 @@ export const useStore = defineStore('invitedex', {
                 }
             } catch (e) {
                 throw new Error(e)
-            }
-
-            // Re-init user if guest hash stored
-            const hash = localStorage.getItem('whoiam')
-
-            if (hash && hash !== '') {
-                this.isInitialized = true
-                this.whoiam = hash
             }
         },
         onButtonPress(button) {

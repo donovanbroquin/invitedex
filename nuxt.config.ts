@@ -12,7 +12,13 @@ export default defineNuxtConfig({
         s3EndpointUrl: process.env.S3_ENDPOINT_URL,
         s3Region: process.env.S3_REGION,
         s3Id: process.env.S3_ID,
-        s3Secret: process.env.S3_SECRET
+        s3Secret: process.env.S3_SECRET,
+
+        public: {
+            // Event
+            eventStartAt: process.env.EVENT_START_AT,
+            eventEndAt: process.env.EVENT_END_AT
+        }
     },
     modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt',],
     build: {
