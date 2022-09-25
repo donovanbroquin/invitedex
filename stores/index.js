@@ -94,22 +94,28 @@ export const useStore = defineStore('invitedex', {
             }
             this.inputs.push(button)
         },
-        onEndInit(guest) {
+        onEndInit({hash}) {
             this.isInitialized = true
-            this.whoiam = guest
+            this.whoiam = hash
 
-            localStorage.setItem('whoiam', guest.hash);
+            localStorage.setItem('whoiam', hash);
         },
         async onReset() {
+            // Reset store
             this.isInitialized = false
             this.currentGuest = null
             this.input = ''
             this.inputs = []
+            this.guests = []
+            this.catches = []
+            this.position = {
+                page: 0,
+                guest: 0,
+            }
 
             // Clean indexedDB
             await this.db.guests.clear()
-            this.guests = []
-            this.catched = []
+            await this.db.catches.clear()
 
             // Remove S3 file
 
@@ -134,7 +140,7 @@ export const useStore = defineStore('invitedex', {
                 this.db.catches.add(item)
 
                 // Store in S3 JSON file
-                await axios.post('/api/catches', this.catches)
+                await axios.post('/api/catches', {hash: this.whoiam, catches: this.catches})
             }
 
             // Set currentGuest to hash owner
