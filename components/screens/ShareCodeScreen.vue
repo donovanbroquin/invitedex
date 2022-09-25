@@ -23,11 +23,7 @@ const emit = defineEmits(['next'])
 const qrcode = ref()
 
 onMounted(() => {
-  QRCode.toCanvas(qrcode.value, store.whoiam, {
-    // color: {
-    //   light: '#000000ff'
-    // }
-  }, function (error) {
+  QRCode.toCanvas(qrcode.value, store.whoiam, function (error) {
     if (error) console.error('here', error)
   })
 })

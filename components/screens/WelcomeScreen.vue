@@ -62,7 +62,7 @@ const currentGuestFirstName = computed(() => {
 
 // Handle A button to select and trigger screen change
 $mitt.on('A_PRESS', () => {
-  if (registred) {
+  if (registred.value) {
     emit('next', MenuScreen)
   } else {
     store.onEndInit(currentGuest.value)

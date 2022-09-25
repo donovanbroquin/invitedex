@@ -25,7 +25,9 @@ import ResetScreen from "./ResetScreen";
 import ShareCodeScreen from "./ShareCodeScreen";
 import ScanGuestScreen from "./ScanGuestScreen";
 import AboutScreen from "./AboutScreen";
+import ContestScreen from "./ContestScreen";
 import useResetMitt from "../../composables/useResetMitt";
+import {useStore} from "~/stores";
 
 const {$mitt} = useNuxtApp()
 
@@ -35,11 +37,14 @@ const items = [
   {name: 'Invités', icon: 'users'},
   {name: 'Être enregistré(e)', icon: 'qrcode'},
   {name: 'Enregistrer un invité', icon: 'plus-circle'},
+  {name: 'Concours', icon: 'trophy'},
   {name: 'Réinitialiser', icon: 'gear'},
   {name: 'À propos', icon: 'question-circle'},
 ]
 const currentItem = ref(0)
 const emit = defineEmits(['next'])
+
+useStore().contest()
 
 // Handle A button to select and trigger screen change
 $mitt.on('A_PRESS', () => {
@@ -56,9 +61,12 @@ $mitt.on('A_PRESS', () => {
       nextScreen = ScanGuestScreen
       break
     case 3:
-      nextScreen = ResetScreen
+      nextScreen = ContestScreen
       break
     case 4:
+      nextScreen = ResetScreen
+      break
+    case 5:
       nextScreen = AboutScreen
       break
   }

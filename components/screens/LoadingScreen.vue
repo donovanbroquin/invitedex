@@ -30,14 +30,13 @@ onMounted(async () => {
   try {
     await store.init()
 
-
     // Change screen
     setTimeout(() => {
       // Stop interval (avoid memory leak)
       clearInterval(interval)
 
       if (canEmitNext) emit('next', store.isInitialized ? MenuScreen : WelcomeScreen)
-    }, 5000)
+    }, 3000)
   } catch (e) {
     console.log(e)
   }

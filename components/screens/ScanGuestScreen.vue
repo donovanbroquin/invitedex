@@ -18,9 +18,9 @@ const reader = ref()
 const scanner = ref()
 
 onMounted(() => {
-  scanner.value = new QrScanner(reader.value, success => {
+  scanner.value = new QrScanner(reader.value, async success => {
     // Set it on storages
-    store.onCatchGuest(success)
+    await store.onCatchGuest(success)
 
     // Redirect to guest screen
     emit('next', GuestScreen)

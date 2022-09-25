@@ -47,7 +47,7 @@ export const useStore = defineStore('invitedex', {
                     catches: 'hash, date',
                 });
             } catch (e) {
-                console.log('first', e)
+                console.log(e)
             }
 
             // Use stored guests if present only of wedding day
@@ -59,7 +59,7 @@ export const useStore = defineStore('invitedex', {
                 if (!this.guests) this.guests = []
                 if (!this.catches) this.catches = []
             } catch (e) {
-                console.log('second', e)
+                console.log(e)
             }
 
             if (this.guests.length > 0 && new Date >= new Date('2022-10-01')) return
@@ -80,7 +80,7 @@ export const useStore = defineStore('invitedex', {
             // Re-init user if guest hash stored
             const hash = localStorage.getItem('whoiam')
 
-            if (hash) {
+            if (hash && hash !== '') {
                 this.isInitialized = true
                 this.whoiam = hash
             }
@@ -111,6 +111,8 @@ export const useStore = defineStore('invitedex', {
             this.guests = []
             this.catched = []
 
+            // Remove S3 file
+
             // Delete localStorage hash
             localStorage.clear()
             this.whoiam = ''
@@ -121,12 +123,18 @@ export const useStore = defineStore('invitedex', {
         onUpdatePosition(position) {
             this.position = position
         },
-        onCatchGuest(hash) {
+        async onCatchGuest(hash) {
             if (!this.catches.map(catched => catched.hash).includes(hash)) {
                 const item = {hash, date: new Date}
 
+                // Store in Pinia store
                 this.catches.push(item)
+
+                // Store in IndexedDB
                 this.db.catches.add(item)
+
+                // Store in S3 JSON file
+                await axios.post('/api/catches', this.catches)
             }
 
             // Set currentGuest to hash owner
@@ -138,6 +146,16 @@ export const useStore = defineStore('invitedex', {
                     }
                 })
             })
+        },
+        async contest() {
+            try {
+                const res = (await axios.get('/api/contest')).data
+
+                return {...res, ...this.guests.find(guest => guest.hash === res.hash)}
+            } catch (e) {
+                await Promise.reject(e)
+                throw new Error(e)
+            }
         }
     },
 })

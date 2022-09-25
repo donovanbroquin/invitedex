@@ -2,9 +2,10 @@
   <div class="flex flex-col h-full text-lg tracking-wide">
     <div class="flex">
       <canvas ref="sprite" class="h-24 w-24"/>
+
       <div class="h-full flex flex-col justify-between">
-        <h1 class="font-black text-xs">{{ store.currentGuest.name }}</h1>
-        <p class="text-xsss tracking-tighter mb-4">{{ store.currentGuest.relation }}</p>
+        <h1 class="font-black text-xs">{{ store.currentGuest?.name }}</h1>
+        <p class="text-xsss tracking-tighter mb-4">{{ store.currentGuest?.relation }}</p>
       </div>
     </div>
 
@@ -19,13 +20,12 @@
     </div>
 
     <p class="outline-4 outline-double rounded outline-borders outline-offset-4 h-full text-xss">
-      {{ store.currentGuest.description }}</p>
+      {{ store.currentGuest?.description }}</p>
   </div>
 </template>
 
 <script setup>
-import {useStore} from "../../stores";
-import padstart from "lodash.padstart";
+import {useStore} from "~/stores";
 import useSprite from "../../composables/useSprite";
 import useResetMitt from "../../composables/useResetMitt";
 import GuestsScreen from "./GuestsScreen";
@@ -52,9 +52,11 @@ onMounted(() => {
 })
 
 function refreshSprite() {
-  useSprite(
-      sprite.value, store.currentGuest.sprite, store.currentGuest.coordinates[0], store.currentGuest.coordinates[1]
-  )
+  if (store.currentGuest) {
+    useSprite(
+        sprite.value, store.currentGuest?.sprite, store.currentGuest?.coordinates[0], store.currentGuest?.coordinates[1]
+    )
+  }
 }
 
 $mitt.on('B_PRESS', () => {
@@ -66,7 +68,6 @@ $mitt.on('B_PRESS', () => {
 $mitt.on('DOWN_PRESS', () => {
   useOnListDown()
   useSelectGuest()
-  console.log('onDetail')
 
   refreshSprite()
 })

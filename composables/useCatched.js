@@ -2,9 +2,9 @@ import {useStore} from "~/stores";
 
 export default (hash = null) => {
     const store = useStore()
-    const hashToSearch = hash ?? store.currentGuest.hash
 
     return computed(() => {
+        const hashToSearch = hash ?? store.currentGuest?.hash
         const found = store.catches.find(catched => catched.hash === hashToSearch)
 
         if (!found) return
