@@ -38,6 +38,7 @@ export default defineEventHandler(async () => {
                 coordinates:
                     guest.properties.coordinates.rich_text[0].plain_text.split(","),
                 description: guest.properties.description.rich_text[0].plain_text,
+                table: guest.properties.table.rich_text[0].plain_text,
                 hash: crypto.createHash("sha256")
                     .update(name)
                     .digest("hex")
