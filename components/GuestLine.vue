@@ -11,16 +11,10 @@
       <div class="flex space-x-4 justify-between">
         <p class="text-xsss">No. {{ no }}</p>
 
-        <div :class="{'invisible': (catched?.hash !== guest.hash || !isUser)}"
+        <div :class="{'invisible': catched?.hash !== guest.hash && !isUser}"
              class="flex justify-center items-center">
           <div class="w-5">
             <FontAwesomeIcon :icon="isUser ? 'check' : 'handshake'"/>
-          </div>
-        </div>
-        <div :class="{'invisible': !isUser}"
-             class="flex justify-center items-center">
-          <div class="w-5">
-            <FontAwesomeIcon icon="check"/>
           </div>
         </div>
       </div>
