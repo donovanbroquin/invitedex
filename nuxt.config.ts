@@ -14,6 +14,9 @@ export default defineNuxtConfig({
         s3Id: process.env.S3_ID,
         s3Secret: process.env.S3_SECRET,
 
+        // Contest
+        contestExclusion: process.env.CONTEST_EXCLUSION,
+
         public: {
             // Event
             eventStartAt: process.env.EVENT_START_AT,

@@ -79,7 +79,7 @@ export const useStore = defineStore('invitedex', {
             try {
 
                 const guests = await axios.get('/api/guests')
-                console.log(guests)
+
                 if (guests.data) {
                     try {
                         await this.db.guests.bulkAdd(guests.data)
@@ -147,7 +147,11 @@ export const useStore = defineStore('invitedex', {
                 this.db.catches.add(item)
 
                 // Store in S3 JSON file
-                await axios.post('/api/catches', {hash: this.whoiam, catches: this.catches})
+                await axios.post('/api/catches', {
+                    hash: this.whoiam,
+                    catches: this.catches,
+                    id: this.guests.find(guest => guest.hash === this.whoiam).id
+                })
             }
 
             // Set currentGuest to hash owner
