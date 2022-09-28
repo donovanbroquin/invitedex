@@ -166,7 +166,7 @@ export const useStore = defineStore('invitedex', {
         },
         async contest() {
             try {
-                const res = (await axios.get('/api/contest')).data
+                const res = (await axios.get('/api/winner')).data
 
                 return {...res, ...this.guests.find(guest => guest.hash === res.hash)}
             } catch (e) {
