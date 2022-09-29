@@ -4,7 +4,7 @@
       <Biper v-for="idx in 2" color="bg-red" reflectless/>
     </div>
 
-    <div class="bg-screen h-60 w-full rounded font-press text-xs p-4 relative">
+    <div class="bg-screen h-60 w-full rounded font-press text-xs p-4 relative overflow-scroll">
       <Component :is="currentScreen" @next="onChangeScreen" @back="onChangeScreen(true)"/>
     </div>
 

@@ -11,7 +11,7 @@
 
       <h2 class="mt-3">{{ winner?.name }}</h2>
 
-      <div class="self-left mt-2 text-xsss h-full">
+      <div class="self-left mt-2 text-xsss">
         <div>
           <span>Enregistrés: </span> {{ winner?.catchesCount }}
         </div>

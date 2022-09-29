@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-between h-full text-xsss tracking-tighter">
-    <h1 class="text-base text-center border-b-4 border-double border-borders pb-2">À propos</h1>
+    <h1 class="text-base text-center border-b-4 border-double border-borders pb-2 w-full">À propos</h1>
     <p>Cette application n'enregistre aucune donnée personnelle et n'inclus aucun cookie de suivi.</p>
     <p>Des informations liées au bon fonctionnement de l'application sont cependant échangées avec un service externe
       (liste d'invités, enregistrements).</p>
