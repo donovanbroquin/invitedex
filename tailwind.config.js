@@ -2,6 +2,14 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+    content: [
+        "./components/**/*.{js,vue,ts}",
+        "./layouts/**/*.vue",
+        "./pages/**/*.vue",
+        "./plugins/**/*.{js,ts}",
+        "./app.vue",
+        "./error.vue",
+      ],
     theme: {
         extend: {
             colors: {
@@ -11,10 +19,10 @@ module.exports = {
                 'biper': '#38bdf8',
                 'biper-dark': '#0ea5e9',
                 'borders': '#1e293b',
-                'red': '#ef4444',
-                'orange': '#eab308',
-                'green': '#22c55e',
-                'blue': '#0ea5e9',
+                // 'red': '#ef4444',
+                // 'orange': '#eab308',
+                // 'green': '#22c55e',
+                // 'blue': '#0ea5e9',
                 'separation': '#7f1d1d',
                 'screen-container': '#cbd5e1',
                 'screen': '#1f293731',
@@ -45,5 +53,4 @@ module.exports = {
             })
         })
     ],
-    content: [],
 }

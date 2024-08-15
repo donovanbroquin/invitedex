@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       }
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt',],
+  modules: ['@pinia/nuxt',],
 
   build: {
       transpile: [
@@ -32,6 +32,15 @@ export default defineNuxtConfig({
           '@fortawesome/free-solid-svg-icons',
       ]
   },
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+
+  css: ['~/assets/css/main.css'],
 
   head: {
       meta: [

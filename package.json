@@ -7,7 +7,6 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.12.4"
   },
   "dependencies": {
@@ -16,6 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@pinia/nuxt": "^0.5.3",
+    "autoprefixer": "^10.4.20",
     "axios": "^1.7.4",
     "crypto": "^1.0.1",
     "dexie": "^4.0.8",
@@ -25,8 +25,10 @@
     "mitt": "^3.0.1",
     "normalize.css": "^8.0.1",
     "pinia": "^2.2.1",
+    "postcss": "^8.4.41",
     "qr-scanner": "^1.4.2",
-    "qrcode": "^1.5.4"
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^3.4.10"
   },
   "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
 }

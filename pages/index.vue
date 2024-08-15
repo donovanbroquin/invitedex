@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import "~/assets/app.css";
+// import "~/assets/app.css";
 import Biper from "../components/Biper";
 import Separator from "../components/Separator";
 import Screen from "../components/Screen";
