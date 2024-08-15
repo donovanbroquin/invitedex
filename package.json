@@ -2,30 +2,31 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --https --ssl-key certs/server.key --ssl-cert certs/server.crt --port 3000",
+    "dev": "nuxt dev --port 3000 --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.3.3",
-    "nuxt": "^3.0.0-rc.11"
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "nuxt": "^3.12.4"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.171.0",
-    "@fortawesome/fontawesome-svg-core": "^6.2.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "@fortawesome/vue-fontawesome": "^3.0.1",
-    "@pinia/nuxt": "^0.4.2",
-    "axios": "^0.27.2",
+    "@aws-sdk/client-s3": "^3.631.0",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@pinia/nuxt": "^0.5.3",
+    "axios": "^1.7.4",
     "crypto": "^1.0.1",
-    "dexie": "^3.2.2",
+    "dexie": "^4.0.8",
     "lodash.chunk": "^4.2.0",
     "lodash.padstart": "^4.6.1",
     "lodash.sortby": "^4.7.0",
-    "mitt": "^3.0.0",
+    "mitt": "^3.0.1",
     "normalize.css": "^8.0.1",
-    "pinia": "^2.0.22",
-    "qr-scanner": "^1.4.1",
-    "qrcode": "^1.5.1"
-  }
+    "pinia": "^2.2.1",
+    "qr-scanner": "^1.4.2",
+    "qrcode": "^1.5.4"
+  },
+  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
 }

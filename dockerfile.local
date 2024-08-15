@@ -1,0 +1,15 @@
+FROM node:20.16.0-bookworm
+
+WORKDIR /var/www/app
+
+COPY . .
+
+# Enable corepack
+# Install and activate the specific version of Yarn
+# Install dependencies
+RUN corepack enable && \
+    yes | corepack prepare yarn@4.3.1 --activate && \
+    yarn
+
+# Start dev server
+CMD ["yarn", "dev"]

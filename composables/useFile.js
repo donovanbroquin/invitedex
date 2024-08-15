@@ -2,14 +2,18 @@ import {GetObjectCommand, ListObjectsCommand, PutObjectCommand, S3Client} from "
 import sortBy from "lodash.sortby";
 
 function getClient(runtime) {
-    const {s3Region, s3Id, s3Secret} = runtime
+    const {s3Region, s3Id, s3Secret, s3ForcePathStyle, s3EndpointUrl} = runtime
+
+    console.log(s3Region, s3Id, s3Secret, s3ForcePathStyle, s3EndpointUrl)
 
     return new S3Client({
         region: s3Region,
         credentials: {
             accessKeyId: s3Id,
             secretAccessKey: s3Secret,
-        }
+        },
+        endpoint: s3EndpointUrl,
+        forcePathStyle: s3ForcePathStyle
     });
 }
 
